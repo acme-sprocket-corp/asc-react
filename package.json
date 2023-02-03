@@ -24,7 +24,6 @@
     "web-vitals": "^2.1.4"
   },
   "jest": {
-    "collectCoverageFrom": ["./src/**.spec.**"],
     "coverageThreshold": {
       "global": {
         "branches": 80,
