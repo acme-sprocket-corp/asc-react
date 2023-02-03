@@ -8,8 +8,18 @@
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:@typescript-eslint/strict",
     "react-app",
+    "plugin:jsx-a11y/strict",
     "react-app/jest",
     "plugin:compat/recommended",
+    "plugin:storybook/recommended",
     "plugin:prettier/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.stories.*"],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
+    }
   ]
 }
