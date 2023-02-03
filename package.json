@@ -31,7 +31,13 @@
         "lines": 80,
         "statements": -10
       }
-    }
+    },
+    "coveragePathIgnorePatterns": [
+      "index.tsx",
+      "reportWebVitals.ts",
+      ".stories.*",
+      ".spec.*"
+    ]
   },
   "browserslist": {
     "production": [
