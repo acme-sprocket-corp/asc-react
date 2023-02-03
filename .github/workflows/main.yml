@@ -27,6 +27,6 @@ jobs:
       - run: npm run lint
       - run: npm run lint:e2e
       - run: npm run test -- --coverage
-      - uses: cypress-io/github-action@v5.2.0
+      - uses: cypress-io/github-action@v5
         with:
           start: npm run start
