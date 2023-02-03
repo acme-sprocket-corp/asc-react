@@ -1,14 +1,15 @@
 {
-    "parserOptions": {
-        "project": ["./tsconfig.json"]
-      },
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:@typescript-eslint/strict",
-        "react-app",
-        "react-app/jest",
-        "plugin:compat/recommended"
-    ]
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
+    "react-app",
+    "react-app/jest",
+    "plugin:compat/recommended",
+    "plugin:prettier/recommended"
+  ]
 }
