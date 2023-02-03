@@ -9,7 +9,9 @@
     "test:watch": "npm test -- --coverage --watchAll",
     "eject": "react-scripts eject",
     "lint": "npx eslint ./src --fix",
-    "prepare": "husky install"
+    "lint:e2e": "npx eslint ./cypress/e2e --fix",
+    "prepare": "husky install",
+    "cypress": "npx cypress open"
   },
   "dependencies": {
     "@types/jest": "^27.5.2",
@@ -26,6 +28,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "cypress": "^12.5.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-prettier": "^4.2.1",
@@ -36,9 +39,9 @@
   "jest": {
     "coverageThreshold": {
       "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
         "statements": -10
       }
     },

@@ -23,5 +23,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
+      - run: npm run build
       - run: npm run lint
+      - run: npm run lint:e2e
       - run: npm run test -- --coverage
+      - uses: cypress-io/github-action@v5.x.x
+        with:
+          start: npm run start
