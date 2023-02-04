@@ -197,9 +197,10 @@ export class Api<
      * @request GET:/api/Sprocket
      */
     getAllSprockets: (params: RequestParams = {}) =>
-      this.request<void, any>({
+      this.request<string[], string>({
         path: `/api/Sprocket`,
         method: "GET",
+        format: "json",
         ...params,
       }),
   };
