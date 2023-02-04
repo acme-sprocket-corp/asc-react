@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
+import { TitleSize, Title } from "../common";
 
 const App: React.FC = () => {
   return (
     <>
       <header>
         <nav>
-          <h1>Acme Sprocket Co.</h1>
+          <Title titleSize={TitleSize.One} title="Acme Sprocket Co." />
         </nav>
       </header>
       <main>

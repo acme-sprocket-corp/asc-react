@@ -1,5 +1,7 @@
+import { TitleSize, Title } from "../../common";
+
 const Home: React.FC = () => {
-  return <h1>Home!</h1>;
+  return <Title title="Home" titleSize={TitleSize.Two} />;
 };
 
 export default Home;
