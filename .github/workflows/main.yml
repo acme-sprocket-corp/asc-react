@@ -20,24 +20,41 @@ jobs:
         node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run build
-      - run: npm run build-storybook
-      - run: npm run lint
-      - run: npm run lint:e2e
+
+      - name: Restore Dependencies
+        run: npm ci
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Lint Application
+        run: npm run lint
+
+      - name: Lint Integration Test
+        run: npm run lint:e2e
+
       - run: npm run test -- --coverage
+
       - uses: cypress-io/github-action@v5
         with:
           start: npm run start
+
       - uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./build
+
       - uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_STORYBOOK_NAME }}
