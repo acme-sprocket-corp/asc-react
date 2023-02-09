@@ -1,4 +1,5 @@
 import { createContext } from "react";
+import { act } from "react-dom/test-utils";
 import IAction from "./actions/IAction";
 import {
   ApplicationState,
