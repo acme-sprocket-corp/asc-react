@@ -43,19 +43,23 @@ jobs:
       - name: Lint Integration Test
         run: npm run lint:e2e -- --max-warnings 0
 
-      - run: npm run test -- --coverage
+      - name: Run Unit Tests
+        run: npm run test -- --coverage
 
-      - uses: cypress-io/github-action@v5
+      - name: Run Integration Tests
+        uses: cypress-io/github-action@v5
         with:
           start: npm run start
 
-      - uses: azure/webapps-deploy@v2
+      - name: Deploy App
+        uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./build
 
-      - uses: azure/webapps-deploy@v2
+      - name: Deploy Storybook
+        uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_STORYBOOK_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_STORYBOOK_PUBLISH_PROFILE }}
