@@ -38,7 +38,7 @@ jobs:
         run: npm run build-storybook
 
       - name: Lint Application
-        run: npm run lint
+        run: npm run lint --max-warnings 0
 
       - name: Lint Integration Test
         run: npm run lint:e2e

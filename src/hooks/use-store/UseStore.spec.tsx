@@ -35,10 +35,8 @@ describe("UseStore", () => {
   it("has correct state", () => {
     const { result } = renderHook(() => useStore(), { wrapper: StoreWrapper });
 
-    let state: ApplicationState;
-
     act(() => {
-      state = result.current[0];
+      const [state] = result.current;
 
       expect(state.isLoggedIn).toStrictEqual(false);
       expect(state.customerEmail).toStrictEqual("");
