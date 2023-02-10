@@ -2,15 +2,15 @@ import ValueDefaults from "./ValueDefaults";
 
 describe("ValueDefaults", () => {
   it("String returns correct value", () => {
-    expect(ValueDefaults.String).toStrictEqual("");
+    expect(ValueDefaults.String).toBe("");
   });
 
   it("Boolean returns correct value", () => {
-    expect(ValueDefaults.Boolean).toStrictEqual(false);
+    expect(ValueDefaults.Boolean).toBeFalse();
   });
 
   it("Number returns correct value", () => {
-    expect(ValueDefaults.Number).toStrictEqual(0);
+    expect(ValueDefaults.Number).toBe(0);
   });
 
   it("Array returns empty", () => {

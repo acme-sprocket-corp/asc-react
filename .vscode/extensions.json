@@ -6,6 +6,7 @@
     "webben.browserslist",
     "streetsidesoftware.code-spell-checker",
     "esbenp.prettier-vscode",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "syler.sass-indented"
   ]
 }

@@ -11,10 +11,14 @@
     "plugin:jsx-a11y/strict",
     "plugin:compat/recommended",
     "react-app/jest",
+    "plugin:jest/recommended",
+    "plugin:jest-extended/all",
+    "plugin:jest/style",
     "plugin:testing-library/react",
     "plugin:jest-dom/recommended",
     "plugin:storybook/recommended",
     "plugin:cypress/recommended",
+    "plugin:jest-formatting/strict",
     "plugin:prettier/recommended"
   ],
   "rules": {
@@ -25,7 +29,13 @@
     {
       "files": ["**/*.stories.*"],
       "rules": {
-        "import/no-anonymous-default-export": "off"
+        "import/no-anonymous-default-export": 0
+      }
+    },
+    {
+      "files": ["**/*.cy.*"],
+      "rules": {
+        "jest/expect-expect": 0
       }
     }
   ]

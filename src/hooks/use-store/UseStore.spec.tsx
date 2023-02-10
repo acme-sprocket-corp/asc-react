@@ -2,10 +2,7 @@ import { act } from "@testing-library/react";
 import { ApplicationContext } from "../../stores/ApplicationStore";
 import useStore from "./UseStore";
 import { renderHook } from "@testing-library/react";
-import {
-  ApplicationState,
-  defaultApplicationState,
-} from "../../stores/state/ApplicationState";
+import { defaultApplicationState } from "../../stores/state/ApplicationState";
 import { ReactNode, useReducer } from "react";
 import applicationReducer from "../../stores/reducer/ApplicationReducer";
 
@@ -38,8 +35,8 @@ describe("UseStore", () => {
     act(() => {
       const [state] = result.current;
 
-      expect(state.isLoggedIn).toStrictEqual(false);
-      expect(state.customerEmail).toStrictEqual("");
+      expect(state.isLoggedIn).toBeFalse();
+      expect(state.customerEmail).toBe("");
     });
   });
 });

@@ -7,6 +7,6 @@ describe("Application Store", () => {
 
     expect(defaultStore.state).toStrictEqual(defaultApplicationState());
     expect(defaultStore.dispatcher).not.toBeNull();
-    expect(defaultStore.dispatcher).not.toThrowError();
+    expect(defaultStore.dispatcher).not.toThrow();
   });
 });
