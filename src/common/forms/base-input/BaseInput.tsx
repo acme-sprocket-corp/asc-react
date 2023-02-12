@@ -1,6 +1,8 @@
 import { useId } from "react";
+import IUseInput from "../hooks/IUseInput";
 
 const BaseInput: React.FC<BaseInputProperties> = ({
+  input,
   label,
   placeholder,
   type,
@@ -18,6 +20,8 @@ const BaseInput: React.FC<BaseInputProperties> = ({
           id={inputId}
           placeholder={placeholder}
           type={type}
+          value={input.value}
+          onInput={input.updateValue}
         />
       </div>
     </div>
@@ -25,6 +29,7 @@ const BaseInput: React.FC<BaseInputProperties> = ({
 };
 
 interface BaseInputProperties {
+  input: IUseInput<string>;
   label: string;
   placeholder?: string;
   type: string;
