@@ -1,5 +1,4 @@
-import { render, renderHook } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
+import { renderHook } from "@testing-library/react";
 import useInput from "./UseInput";
 
 describe("UseInput", () => {
@@ -18,6 +17,6 @@ describe("UseInput", () => {
       useInput<string>("initial", (value) => value)
     );
 
-    act(() => {});
+    expect(result.current.value).toBe("initial");
   });
 });
