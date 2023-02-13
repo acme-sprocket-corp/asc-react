@@ -4,7 +4,7 @@ import { ApplicationState } from "../../stores/state/ApplicationState";
 import {
   ApplicationContext,
   ApplicationStore,
-} from "../../stores/ApplicationStore";
+} from "../../stores/store/ApplicationStore";
 
 export default function useStore(): [
   ApplicationState,

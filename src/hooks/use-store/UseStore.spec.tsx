@@ -1,5 +1,5 @@
 import { act } from "@testing-library/react";
-import { ApplicationContext } from "../../stores/ApplicationStore";
+import { ApplicationContext } from "../../stores/store/ApplicationStore";
 import useStore from "./UseStore";
 import { renderHook } from "@testing-library/react";
 import { defaultApplicationState } from "../../stores/state/ApplicationState";

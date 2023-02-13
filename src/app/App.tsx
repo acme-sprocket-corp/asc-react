@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { TitleSize, Title } from "../common";
 import applicationReducer from "../stores/reducer/ApplicationReducer";
 import { defaultApplicationState } from "../stores/state/ApplicationState";
-import { ApplicationContext } from "../stores/ApplicationStore";
+import { ApplicationContext } from "../stores/store/ApplicationStore";
 import useCreateStore from "../hooks/use-create-store/UseCreateStore";
 
 const App: React.FC = () => {

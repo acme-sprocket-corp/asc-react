@@ -1,9 +1,9 @@
 import { createContext } from "react";
-import IAction from "./actions/IAction";
+import IAction from "../actions/IAction";
 import {
   ApplicationState,
   defaultApplicationState,
-} from "./state/ApplicationState";
+} from "../state/ApplicationState";
 
 export interface ApplicationStore {
   state: ApplicationState;

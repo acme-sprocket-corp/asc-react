@@ -1,21 +1,24 @@
 import { render, screen } from "@testing-library/react";
-import useInput from "../hooks/common/UseInput";
 import BaseInput from "./BaseInput";
 import userEvent from "@testing-library/user-event";
+import useTextInput from "../hooks/use-text-input/UseTextInput";
+import ValueDefaults from "../../value-defaults/ValueDefaults";
 
 const BaseInputWrapper: React.FC<WrapperProperties> = ({
-  initialValue = "",
+  initialValue = ValueDefaults.String,
   label,
   placeholder,
+  required,
   type,
 }) => {
-  const input = useInput(initialValue, (value) => value);
+  const input = useTextInput(initialValue);
 
   return (
     <BaseInput
       input={input}
       label={label}
       placeholder={placeholder}
+      required={required}
       type={type}
     />
   );
@@ -25,6 +28,7 @@ interface WrapperProperties {
   initialValue?: string;
   label: string;
   placeholder?: string;
+  required?: boolean;
   type: string;
 }
 
@@ -85,5 +89,18 @@ describe("BaseInput", () => {
     await user.keyboard(newValue);
 
     expect(screen.getByPlaceholderText(/placeholder/i)).toHaveValue(newValue);
+  });
+
+  it("has correct required", () => {
+    render(
+      <BaseInputWrapper
+        type="text"
+        label="input"
+        placeholder="placeholder"
+        required
+      />
+    );
+
+    expect(screen.getByPlaceholderText(/placeholder/i)).toBeRequired();
   });
 });

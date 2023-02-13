@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import useInput from "../hooks/common/UseInput";
+import useTextInput from "../hooks/use-text-input/UseTextInput";
 import BaseInput from "./BaseInput";
 
 export default {
@@ -8,7 +8,7 @@ export default {
 } as ComponentMeta<typeof BaseInput>;
 
 const Template: ComponentStory<typeof BaseInput> = (args) => {
-  const input = useInput("initial", (value) => value);
+  const input = useTextInput();
 
   return (
     <BaseInput

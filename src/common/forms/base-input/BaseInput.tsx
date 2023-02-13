@@ -5,6 +5,7 @@ const BaseInput: React.FC<BaseInputProperties> = ({
   input,
   label,
   placeholder,
+  required,
   type,
 }) => {
   const inputId = useId();
@@ -28,6 +29,7 @@ const BaseInput: React.FC<BaseInputProperties> = ({
           className="input"
           id={inputId}
           placeholder={placeholder}
+          required={required}
           type={type}
           value={input.value}
           onInput={handleUpdateInput}
@@ -41,6 +43,7 @@ interface BaseInputProperties {
   input: IUseInput<string>;
   label: string;
   placeholder?: string;
+  required?: boolean;
   type: string;
 }
 
