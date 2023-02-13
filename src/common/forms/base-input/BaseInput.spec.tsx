@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import useInput from "../hooks/UseInput";
+import useInput from "../hooks/common/UseInput";
 import BaseInput from "./BaseInput";
 import userEvent from "@testing-library/user-event";
 
@@ -44,11 +44,16 @@ describe("BaseInput", () => {
   });
 
   it("has correct placeholder", () => {
+    const placeholder = "placeholder";
+
     render(
-      <BaseInputWrapper type="text" placeholder="placeholder" label="input" />
+      <BaseInputWrapper type="text" placeholder={placeholder} label="input" />
     );
 
-    expect(screen.getByPlaceholderText(/placeholder/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(placeholder)).toHaveAttribute(
+      placeholder,
+      placeholder
+    );
   });
 
   it("has correct initial value", () => {

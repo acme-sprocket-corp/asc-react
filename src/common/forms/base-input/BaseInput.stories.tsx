@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import useInput from "../hooks/UseInput";
+import useInput from "../hooks/common/UseInput";
 import BaseInput from "./BaseInput";
 
 export default {

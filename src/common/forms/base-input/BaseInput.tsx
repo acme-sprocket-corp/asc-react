@@ -1,5 +1,5 @@
 import { useId } from "react";
-import IUseInput from "../hooks/IUseInput";
+import IUseInput from "../hooks/common/IUseInput";
 
 const BaseInput: React.FC<BaseInputProperties> = ({
   input,
@@ -8,6 +8,15 @@ const BaseInput: React.FC<BaseInputProperties> = ({
   type,
 }) => {
   const inputId = useId();
+
+  const handleUpdateInput = (
+    event: React.FormEvent<HTMLInputElement>
+  ): void => {
+    const target = event.target as HTMLInputElement;
+
+    input.setValue(target.value);
+    input.setValid(target.validity.valid);
+  };
 
   return (
     <div className="field">
@@ -21,7 +30,7 @@ const BaseInput: React.FC<BaseInputProperties> = ({
           placeholder={placeholder}
           type={type}
           value={input.value}
-          onInput={input.updateValue}
+          onInput={handleUpdateInput}
         />
       </div>
     </div>
