@@ -8,6 +8,7 @@
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:@typescript-eslint/strict",
     "plugin:sonarjs/recommended",
+    "plugin:unicorn/recommended",
     "react-app",
     "plugin:jsx-a11y/strict",
     "plugin:compat/recommended",
@@ -24,7 +25,14 @@
   ],
   "rules": {
     "@typescript-eslint/array-type": [2, { "default": "generic" }],
-    "@typescript-eslint/explicit-function-return-type": 2
+    "@typescript-eslint/explicit-function-return-type": 2,
+    "unicorn/filename-case": [
+      2,
+      {
+        "case": "pascalCase",
+        "ignore": ["\\.spec\\.*", "\\.routes\\.*", "\\.stories\\.*"]
+      }
+    ]
   },
   "overrides": [
     {

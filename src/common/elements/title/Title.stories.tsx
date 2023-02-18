@@ -7,8 +7,8 @@ export default {
   component: Title,
 } as ComponentMeta<typeof Title>;
 
-const Template: ComponentStory<typeof Title> = (args) => (
-  <Title title={args.title} titleSize={args.titleSize} />
+const Template: ComponentStory<typeof Title> = (_arguments) => (
+  <Title title={_arguments.title} titleSize={_arguments.titleSize} />
 );
 
 export const SizeOne = Template.bind({});

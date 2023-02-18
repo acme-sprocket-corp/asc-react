@@ -7,10 +7,10 @@ export default {
   component: TextInput,
 } as ComponentMeta<typeof TextInput>;
 
-const Template: ComponentStory<typeof TextInput> = (args) => {
+const Template: ComponentStory<typeof TextInput> = (_arguments) => {
   const input = useTextInput();
 
-  return <TextInput input={input} label={args.label} />;
+  return <TextInput input={input} label={_arguments.label} />;
 };
 
 export const Default = Template.bind({});

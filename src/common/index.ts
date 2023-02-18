@@ -1,4 +1,3 @@
-import Title from "./elements/title/Title";
-import { TitleSize } from "./elements/title/TitleSize";
+export { default as Title } from "./elements/title/Title";
 
-export { Title, TitleSize };
+export { TitleSize } from "./elements/title/TitleSize";

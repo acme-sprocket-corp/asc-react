@@ -6,7 +6,7 @@ import { defaultApplicationState } from "../../stores/state/ApplicationState";
 import { ReactNode, useReducer } from "react";
 import applicationReducer from "../../stores/reducer/ApplicationReducer";
 
-const StoreWrapper: React.FC<StoreWrapperProps> = ({ children }) => {
+const StoreWrapper: React.FC<StoreWrapperProperties> = ({ children }) => {
   const [state, dispatcher] = useReducer(
     applicationReducer,
     defaultApplicationState()
@@ -24,7 +24,7 @@ const StoreWrapper: React.FC<StoreWrapperProps> = ({ children }) => {
   );
 };
 
-interface StoreWrapperProps {
+interface StoreWrapperProperties {
   children: ReactNode;
 }
 

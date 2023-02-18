@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import "./styles/index.scss";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") ?? new Element()
+  document.querySelector("#root") ?? new Element()
 );
 
 const router = createBrowserRouter([appRoutes([homeRoutes()])]);

@@ -1,3 +1,1 @@
-import useStore from "../hooks/use-store/UseStore";
-
-export { useStore };
+export { default as useStore } from "../hooks/use-store/UseStore";

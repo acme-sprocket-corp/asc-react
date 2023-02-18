@@ -10,11 +10,14 @@ export default function applicationReducer(
   action: IAction
 ): ApplicationState {
   switch (action.action) {
-    case Action.LogIn:
+    case Action.LogIn: {
       return state;
-    case Action.LogOut:
+    }
+    case Action.LogOut: {
       return defaultApplicationState();
-    default:
+    }
+    default: {
       return state;
+    }
   }
 }

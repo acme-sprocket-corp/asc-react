@@ -7,15 +7,15 @@ export default {
   component: BaseInput,
 } as ComponentMeta<typeof BaseInput>;
 
-const Template: ComponentStory<typeof BaseInput> = (args) => {
+const Template: ComponentStory<typeof BaseInput> = (_arguments) => {
   const input = useTextInput();
 
   return (
     <BaseInput
       input={input}
-      type={args.type}
-      label={args.label}
-      placeholder={args.placeholder}
+      type={_arguments.type}
+      label={_arguments.label}
+      placeholder={_arguments.placeholder}
     />
   );
 };
