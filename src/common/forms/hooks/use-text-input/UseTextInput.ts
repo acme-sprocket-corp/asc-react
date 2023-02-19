@@ -3,7 +3,7 @@ import IUseInput from "../common/IUseInput";
 import useInput from "../common/UseInput";
 
 export default function useTextInput(
-  initialValue = ValueDefaults.String
+  initialValue = ValueDefaults.string
 ): IUseInput<string> {
   return useInput(initialValue, (value) => value);
 }

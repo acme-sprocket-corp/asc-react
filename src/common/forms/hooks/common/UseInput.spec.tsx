@@ -11,12 +11,12 @@ describe("UseInput", () => {
     );
 
     expect(result.current.value).toEqual(initialValue);
-    expect(result.current.valid).toBeFalse();
+    expect(result.current.isValid).toBeFalse();
   });
 
   it("setValue correctly sets value", () => {
     const { result } = renderHook(() =>
-      useInput<string>(ValueDefaults.String, (value) => value)
+      useInput<string>(ValueDefaults.string, (value) => value)
     );
 
     const newValue = "newValue";
@@ -30,13 +30,13 @@ describe("UseInput", () => {
 
   it("setValid correctly sets valid", () => {
     const { result } = renderHook(() =>
-      useInput<string>(ValueDefaults.String, (value) => value)
+      useInput<string>(ValueDefaults.string, (value) => value)
     );
 
     act(() => {
-      result.current.setValid(true);
+      result.current.setIsValid(true);
     });
 
-    expect(result.current.valid).toBeTrue();
+    expect(result.current.isValid).toBeTrue();
   });
 });

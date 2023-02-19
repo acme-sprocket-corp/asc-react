@@ -7,7 +7,7 @@ export default function useInput<T>(
   mappingFunction: (value: string) => T
 ): IUseInput<T> {
   const [value, updateValue] = useState<T>(initialValue);
-  const [valid, setValid] = useState<boolean>(ValueDefaults.Boolean);
+  const [isValid, setIsValid] = useState<boolean>(ValueDefaults.boolean);
 
   const setValue = (value: string): void => {
     updateValue(mappingFunction(value));
@@ -16,7 +16,7 @@ export default function useInput<T>(
   return {
     value,
     setValue,
-    valid,
-    setValid,
+    isValid,
+    setIsValid,
   };
 }

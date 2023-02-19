@@ -1,8 +1,8 @@
 const ValueDefaults = {
-  String: "",
-  Boolean: false,
-  Number: 0,
-  Array: <T>(): Array<T> => [],
+  string: "",
+  boolean: false,
+  number: 0,
+  array: <T>(): Array<T> => [],
 };
 
 export default ValueDefaults;

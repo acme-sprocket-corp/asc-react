@@ -16,7 +16,7 @@ const BaseInput: React.FC<BaseInputProperties> = ({
     const target = event.target as HTMLInputElement;
 
     input.setValue(target.value);
-    input.setValid(target.validity.valid);
+    input.setIsValid(target.validity.valid);
   };
 
   return (

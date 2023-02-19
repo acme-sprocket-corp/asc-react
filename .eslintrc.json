@@ -10,6 +10,8 @@
     "plugin:sonarjs/recommended",
     "plugin:unicorn/recommended",
     "react-app",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
     "plugin:jsx-a11y/strict",
     "plugin:compat/recommended",
     "react-app/jest",
@@ -26,11 +28,68 @@
   "rules": {
     "@typescript-eslint/array-type": [2, { "default": "generic" }],
     "@typescript-eslint/explicit-function-return-type": 2,
+    "@typescript-eslint/explicit-member-accessibility": 2,
+    "@typescript-eslint/member-ordering": 2,
+    "@typescript-eslint/parameter-properties": 2,
+    "@typescript-eslint/naming-convention": [
+      2,
+      {
+        "selector": "default",
+        "format": ["camelCase"]
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"]
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "memberLike",
+        "modifiers": ["private"],
+        "format": ["camelCase"],
+        "leadingUnderscore": "require"
+      },
+      {
+        "selector": "enumMember",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      },
+      {
+        "selector": "variable",
+        "types": ["boolean"],
+        "format": ["PascalCase"],
+        "prefix": ["is", "should", "has", "can", "did", "will"]
+      },
+      {
+        "selector": "typeParameter",
+        "format": ["PascalCase"],
+        "prefix": ["T"]
+      }
+    ],
+    "react/boolean-prop-naming": 2,
+    "react/forbid-component-props": 2,
+    "react/jsx-handler-names": 2,
+    "react/jsx-props-no-spreading": 2,
+    "react/prop-types": 0,
+    "react/no-danger": 2,
+    "react/no-namespace": 2,
+    "react/no-unused-prop-types": 2,
     "unicorn/filename-case": [
       2,
       {
         "case": "pascalCase",
-        "ignore": ["\\.spec\\.*", "\\.routes\\.*", "\\.stories\\.*"]
+        "ignore": [
+          "\\.spec\\.*",
+          "\\.routes\\.*",
+          "\\.stories\\.*",
+          "\\.cy\\.*"
+        ]
       }
     ]
   },

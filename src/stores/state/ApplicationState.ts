@@ -7,7 +7,7 @@ export interface ApplicationState {
 
 export function defaultApplicationState(): ApplicationState {
   return {
-    isLoggedIn: ValueDefaults.Boolean,
-    customerEmail: ValueDefaults.String,
+    isLoggedIn: ValueDefaults.boolean,
+    customerEmail: ValueDefaults.string,
   };
 }

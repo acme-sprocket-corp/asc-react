@@ -6,8 +6,8 @@ describe("UseTextInput", () => {
   it("has correct default values", () => {
     const { result } = renderHook(() => useTextInput());
 
-    expect(result.current.value).toEqual(ValueDefaults.String);
-    expect(result.current.valid).toBeFalse();
+    expect(result.current.value).toEqual(ValueDefaults.string);
+    expect(result.current.isValid).toBeFalse();
   });
 
   it("has correct value when passed", () => {
@@ -25,10 +25,10 @@ describe("UseTextInput", () => {
 
     act(() => {
       result.current.setValue(newValue);
-      result.current.setValid(true);
+      result.current.setIsValid(true);
     });
 
     expect(result.current.value).toEqual(newValue);
-    expect(result.current.valid).toBeTrue();
+    expect(result.current.isValid).toBeTrue();
   });
 });

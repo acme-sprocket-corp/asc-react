@@ -5,7 +5,7 @@ import useTextInput from "../hooks/use-text-input/UseTextInput";
 import ValueDefaults from "../../value-defaults/ValueDefaults";
 
 const BaseInputWrapper: React.FC<WrapperProperties> = ({
-  initialValue = ValueDefaults.String,
+  initialValue = ValueDefaults.string,
   label,
   placeholder,
   required,
