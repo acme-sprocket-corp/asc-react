@@ -1,9 +1,10 @@
 import { SortOptions } from "./SortOptions";
-import ITableElement from "./ITableElement";
 import { useState } from "react";
+import { IStateModel } from "./TableStateModel";
 
 const Table: React.FC<TableProperties> = ({
   canSort = false,
+  canSearch = false,
   tableElement,
 }) => {
   const handleSort = (header: string, sortOption: SortOptions): void => {
@@ -21,12 +22,14 @@ const Table: React.FC<TableProperties> = ({
 
   return (
     <div>
-      <input
-        type="text"
-        className="input"
-        value={searchTerm}
-        onInput={handleSearch}
-      />
+      {canSearch && (
+        <input
+          type="text"
+          className="input"
+          value={searchTerm}
+          onInput={handleSearch}
+        />
+      )}
       <table className="table is-fullwidth has-text-centered">
         <thead>
           <tr>
@@ -64,7 +67,11 @@ const Table: React.FC<TableProperties> = ({
                   </th>
                 );
               }
-              return <th key={header}>{header}</th>;
+              return (
+                <th className="has-text-centered" key={header}>
+                  {header}
+                </th>
+              );
             })}
           </tr>
         </thead>
@@ -76,7 +83,8 @@ const Table: React.FC<TableProperties> = ({
 
 interface TableProperties {
   canSort?: boolean;
-  tableElement: ITableElement;
+  canSearch?: boolean;
+  tableElement: IStateModel;
 }
 
 export default Table;

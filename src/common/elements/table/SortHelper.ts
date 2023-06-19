@@ -1,7 +1,8 @@
 import findValueByKey from "./FindValueByKey";
+import ITableElement from "./ITableElement";
 import { SortOptions } from "./SortOptions";
 
-export function sortItems<T extends object>(
+export function sortItems<T extends ITableElement>(
   items: Array<T>,
   property: string,
   sortOption: SortOptions
@@ -11,7 +12,7 @@ export function sortItems<T extends object>(
   }
 
   const filterKey = Object.keys(items[0]).find(
-    (x) => x === property.toLocaleLowerCase()
+    (x) => x.replace("_", "") === property.toLocaleLowerCase()
   );
 
   if (filterKey) {

@@ -56,15 +56,15 @@ export default class AirplaneStateModel implements ITableElement {
     return generateTableHeader({ id: 0, manufacturer: "", model: "" });
   }
 
-  public toRows(): JSX.Element {
+  public toRow(): JSX.Element {
     return (
       <>
         {this._currentAirplanes.map((airplane): JSX.Element => {
           return (
-            <tr key={airplane.id}>
-              <td>{airplane.id}</td>
-              <td>{airplane.manufacturer}</td>
-              <td>{airplane.model}</td>
+            <tr key={""}>
+              <td>{"id"}</td>
+              <td>{"manufacturer"}</td>
+              <td>{"model"}</td>
             </tr>
           );
         })}
