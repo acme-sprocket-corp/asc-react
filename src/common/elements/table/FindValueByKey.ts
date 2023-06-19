@@ -7,7 +7,9 @@ export default function findValueByKey(
   );
 
   if (result) {
-    return result[1] as string;
+    const valuePosition = 1;
+
+    return result[valuePosition] as string;
   }
   return "";
 }

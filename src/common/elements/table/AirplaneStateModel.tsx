@@ -1,63 +1,65 @@
 import Airplane from "./Airplane";
-import findValueByKey from "./FindValueByKey";
 import generateTableHeader from "./GenerateTableHeader";
-import ITableRow from "./ITableRow";
+import ITableElement from "./ITableElement";
+import { searchItems, sortItems } from "./SortHelper";
 import { SortOptions } from "./SortOptions";
 
-export default class AirplaneStateModel implements ITableRow {
+export default class AirplaneStateModel implements ITableElement {
   private _airplanes: Array<Airplane>;
+  private _currentAirplanes: Array<Airplane>;
+  private _setter: (stateModel: AirplaneStateModel) => void;
 
-  public constructor(airplanes: Array<Airplane>) {
+  private constructor(
+    airplanes: Array<Airplane>,
+    currentPlanes: Array<Airplane>,
+    setter: (stateModel: AirplaneStateModel) => void
+  ) {
     this._airplanes = airplanes;
+    this._currentAirplanes = currentPlanes;
+    this._setter = setter;
   }
 
-  public get airplanes(): Array<Airplane> {
-    return this._airplanes;
+  public static onInit(
+    airplanes: Array<Airplane>,
+    setter: (stateModel: AirplaneStateModel) => void
+  ): AirplaneStateModel {
+    return new AirplaneStateModel(airplanes, airplanes, setter);
   }
 
-  public sortAirplanes(
-    header: string,
-    sortOption: SortOptions
-  ): Array<Airplane> {
-    const filterKey = Object.keys(this.airplanes[0]).find(
-      (x) => x === header.toLocaleLowerCase()
+  public static defaultStateModel(): AirplaneStateModel {
+    return new AirplaneStateModel([], [], () => {
+      return;
+    });
+  }
+
+  public search(term: string): void {
+    this._setter(
+      new AirplaneStateModel(
+        this._airplanes,
+        searchItems(this._airplanes, term),
+        this._setter
+      )
     );
+  }
 
-    if (filterKey) {
-      return sortOption === SortOptions.Descending
-        ? this._airplanes.sort((a, b) => {
-            if (findValueByKey(filterKey, a) > findValueByKey(filterKey, b)) {
-              return 1;
-            } else if (
-              findValueByKey(filterKey, a) < findValueByKey(filterKey, b)
-            ) {
-              return -1;
-            }
-            return 0;
-          })
-        : this._airplanes.sort((a, b) => {
-            if (findValueByKey(filterKey, a) < findValueByKey(filterKey, b)) {
-              return 1;
-            } else if (
-              findValueByKey(filterKey, a) > findValueByKey(filterKey, b)
-            ) {
-              return -1;
-            }
-            return 0;
-          });
-    }
-
-    return this._airplanes;
+  public sort(header: string, sortOption: SortOptions): void {
+    this._setter(
+      new AirplaneStateModel(
+        this._airplanes,
+        sortItems(this._currentAirplanes, header, sortOption),
+        this._setter
+      )
+    );
   }
 
   public headers(): Array<string> {
-    return generateTableHeader(this._airplanes[0]);
+    return generateTableHeader({ id: 0, manufacturer: "", model: "" });
   }
 
   public toRows(): JSX.Element {
     return (
       <>
-        {this._airplanes.map((airplane): JSX.Element => {
+        {this._currentAirplanes.map((airplane): JSX.Element => {
           return (
             <tr key={airplane.id}>
               <td>{airplane.id}</td>
